@@ -1,31 +1,37 @@
-# System Architecture
+# DevOps Simulator
 
-## Overview
-DevOps Simulator follows a microservices architecture designed for high availability and scalability.
+A comprehensive CI/CD configuration management tool for enterprise deployments.
 
-## Components
+## Project Status
+- **Version**: 1.0.0 (Production), 2.0.0-beta (Development)
+- **Environments**: Production & Development
+- **Student**: [YOUR NAME]
+- **Student ID**: [YOUR ID]
 
-### 1. Application Server
-- **Technology**: Node.js + Express
-- **Port**: 8080
-- **Scaling**: Horizontal auto-scaling enabled
+## Features
 
-### 2. Database Layer
-- **Database**: PostgreSQL 14
-- **Configuration**: Master-slave replication
-- **Backup**: Daily automated backups
+### Core Features
+- Automated deployment scripts
+- Real-time monitoring
+- Configuration management
+- Backup and recovery system
 
-### 3. Monitoring System
-- **Tool**: Prometheus + Grafana
-- **Metrics**: CPU, Memory, Disk, Network
-- **Alerts**: Email notifications for critical issues
-
-## Deployment Strategy
-- **Method**: Rolling updates
-- **Zero-downtime**: Yes
-- **Rollback**: Automated on failure
-
-## Security
+### Production Features
 - SSL/TLS encryption
-- Database connection encryption
-- Regular security audits
+- Auto-scaling
+- Load balancer integration
+- Scheduled backups
+
+### Development Features (Beta)
+-  Docker Compose integration
+-  Hot reload enabled
+-  Debug mode active
+-  Enhanced logging
+-  Mock external APIs
+
+## Quick Start
+
+### Production Mode
+```bash
+export DEPLOY_ENV=production
+./scripts/deploy.sh
