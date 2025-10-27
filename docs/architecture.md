@@ -1,37 +1,40 @@
-# DevOps Simulator
+# System Architecture
 
-A comprehensive CI/CD configuration management tool for enterprise deployments.
+## Overview
+DevOps Simulator follows a microservices architecture designed for high availability and scalability. This document covers both production and development configurations.
 
-## Project Status
-- **Version**: 1.0.0 (Production), 2.0.0-beta (Development)
-- **Environments**: Production & Development
-- **Student**: [YOUR NAME]
-- **Student ID**: [YOUR ID]
+## Components
 
-## Features
+### 1. Application Server
+- **Technology**: Node.js + Express
+- **Production Port**: 8080
+- **Development Port**: 3000
+- **Scaling**: Horizontal auto-scaling (production only)
+- **Development Features**: Hot reload, debug mode
 
-### Core Features
-- Automated deployment scripts
-- Real-time monitoring
-- Configuration management
-- Backup and recovery system
+### 2. Database Layer
+- **Database**: PostgreSQL 14
+- **Production**: Master-slave replication with automated backups
+- **Development**: Single local instance with seed data
 
-### Production Features
-- SSL/TLS encryption
-- Auto-scaling
-- Load balancer integration
-- Scheduled backups
+### 3. Monitoring System
+- **Production**: Prometheus + Grafana with email alerts
+- **Development**: Console logging with verbose output
+- **Metrics**: CPU, Memory, Disk, Network
 
-### Development Features (Beta)
--  Docker Compose integration
--  Hot reload enabled
--  Debug mode active
--  Enhanced logging
--  Mock external APIs
+## Deployment Strategy
 
-## Quick Start
+### Production
+- **Method**: Rolling updates
+- **Zero-downtime**: Yes
+- **Rollback**: Automated on failure
+- **Region**: us-east-1
 
-### Production Mode
-```bash
-export DEPLOY_ENV=production
-./scripts/deploy.sh
+### Development
+- **Method**: Docker Compose
+- **Features**: Hot reload, instant feedback
+- **Testing**: Automated tests before deployment
+
+## Security
+- **Production**: SSL/TLS encryption, strict access controls
+- **Development**: Relaxed security for easier debugging
